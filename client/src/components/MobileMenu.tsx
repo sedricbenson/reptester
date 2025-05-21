@@ -34,7 +34,7 @@ export default function MobileMenu({ links }: MobileMenuProps) {
       </Button>
 
       <div
-        className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 z-50 bg-white transform transition-transform duration-300 h-auto max-h-screen w-full ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-between items-center px-4 py-3 border-b">
           <span className="text-[#1e40af] font-bold text-xl">

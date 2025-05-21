@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 
 interface PricingPlan {
@@ -69,8 +70,8 @@ export default function PricingSection() {
             <div 
               key={index}
               className={`
-                bg-white rounded-lg shadow-lg overflow-hidden 
-                hover:shadow-xl transition-shadow duration-300
+                bg-white rounded-lg shadow-lg overflow-hidden flex flex-col
+                hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out
                 ${plan.popular ? 'transform scale-105 z-10 border-2 border-primary' : ''}
               `}
             >
@@ -79,17 +80,17 @@ export default function PricingSection() {
                   <span className="font-medium">Most Popular</span>
                 </div>
               )}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 h-[32px]">{plan.name}</h3>
-                <p className="text-gray-600 mb-6 h-[48px]">{plan.description}</p>
+              <div className="p-8 flex-grow">
+                <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                <p className="text-gray-600 mb-6">{plan.description}</p>
                 <div className="mb-8">
                   <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-gray-600">{plan.period}</span>
                   {plan.priceNote && (
-                    <p className="text-sm text-gray-500 mt-2 h-[40px]">{plan.priceNote}</p>
+                    <p className="text-sm text-gray-500 mt-2">{plan.priceNote}</p>
                   )}
                 </div>
-                <ul className="mb-8 space-y-3 min-h-[400px]">
+                <ul className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
                       <Check className="h-5 w-5 text-green-500 mr-3" />
@@ -98,7 +99,7 @@ export default function PricingSection() {
                   ))}
                 </ul>
               </div>
-              <div className="p-8 bg-gray-50 border-t border-gray-100">
+              <div className="p-8 bg-gray-50 border-t border-gray-100 mt-auto">
                 <a 
                   href="#contact" 
                   className={`
