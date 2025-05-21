@@ -25,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 type FormValues = z.infer<typeof contactFormSchema>;
 
@@ -57,7 +58,9 @@ export default function ContactSection() {
     onError: (error) => {
       toast({
         title: "Error",
-        description: error.message || "There was a problem sending your message. Please try again.",
+        description:
+          error.message ||
+          "There was a problem sending your message. Please try again.",
         variant: "destructive",
       });
     },
@@ -72,69 +75,88 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section
+      id="contact"
+      className="py-16 md:py-24 bg-gradient-to-b from-neutral-light/50 to-neutral-light"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have questions or want to schedule a tour? Contact us today!
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+            Contact Us
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Have questions about our workspace? We're here to help!
           </p>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <Mail className="h-5 w-5" />
+          <Card className="shadow-xl border-0 bg-white/80 translate-y-2">
+            <CardContent className="p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="space-y-8">
+                  <div className="flex items-start group">
+                    <div className="text-primary mr-4 p-3 rounded-lg bg-primary/10 transition-colors flex items-center justify-center w-12 h-12">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">Email</h4>
+                      <a
+                        href="mailto:heather@schussboomer.net"
+                        className="text-gray-600 hover:text-primary"
+                      >
+                        heather@schussboomer.net
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="text-primary mr-4 p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center w-12 h-12">
+                      <Phone className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Phone</h4>
+                      <a
+                        href="tel:+13602991839"
+                        className="text-gray-600 hover:text-primary"
+                      >
+                        360.299.1839
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1">Email</h4>
-                  <a href="mailto:heather@schussboomer.net" className="text-gray-600 hover:text-primary">
-                    heather@schussboomer.net
-                  </a>
+
+                <div className="space-y-8">
+                  <div className="flex items-start">
+                    <div className="text-primary mr-4 p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center w-12 h-12">
+                      <Clock className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Office Hours</h4>
+                      <p className="text-gray-600">
+                        Monday - Friday: 8am - 4pm
+                        <br />
+                        Saturday - Sunday: Closed
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="text-primary mr-4 p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center w-12 h-12">
+                      <Info className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Tours</h4>
+                      <p className="text-gray-600">
+                        Available during office hours.
+                        <br />
+                        Contact us to schedule.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1">Phone</h4>
-                  <a href="tel:+13602991839" className="text-gray-600 hover:text-primary">
-                    360.299.1839
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <Clock className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1">Office Hours</h4>
-                  <p className="text-gray-600">
-                    Monday - Friday: 8am - 4pm<br />
-                    Saturday - Sunday: Closed
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <Info className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1">Tours</h4>
-                  <p className="text-gray-600">
-                    We offer guided tours of our workspace Monday through Friday during our office hours (8am-4pm). Contact us to schedule a time that works for you.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
